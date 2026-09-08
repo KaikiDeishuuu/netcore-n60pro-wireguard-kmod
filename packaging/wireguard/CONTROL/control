@@ -1,0 +1,10 @@
+Package: kmod-wireguard
+Version: 5.4.284-3
+Depends: kernel (=5.4.284-1-e9cf91df0a4fdfa42b1117918a7e0f50), kmod-udptunnel-combined
+Source: wireguard-linux-compat-v1.0.20220627; padavanonly/immortalwrt-mt798x@02fff2aebcfe5f4e2166ebc8697e9edf932c5a77
+SourceName: kmod-wireguard-vendor-gcc8
+License: GPL-2.0
+Section: kernel
+Architecture: aarch64_cortex-a53
+Installed-Size: 0
+Description: WireGuard 1.0.20220627 for the vendor-patched MT7986 Linux 5.4.284 kernel, built with OpenWrt GCC 8.4.0.
