@@ -87,3 +87,8 @@ kernel (=5.4.284-1-e9cf91df0a4fdfa42b1117918a7e0f50)
 The source tree's default package ABI may differ when its complete historical
 firmware configuration is unavailable. Do not install an IPK whose kernel ABI
 dependency differs from the target.
+
+Release package revision 4 also contains a `preinst` guard for board
+`netcore,n60`, firmware revision `r20651+1-02fff2aebc`, and kernel `5.4.284`.
+OpenWrt's `ipkg-build` replaces the `Installed-Size: 0` template placeholder
+with the deterministic compressed `data.tar.gz` size.

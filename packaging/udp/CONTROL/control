@@ -1,10 +1,12 @@
 Package: kmod-udptunnel-combined
-Version: 5.4.284-3
+Version: 5.4.284-4
 Depends: kernel (=5.4.284-1-e9cf91df0a4fdfa42b1117918a7e0f50)
 Provides: kmod-udptunnel4, kmod-udptunnel6
 Conflicts: kmod-udptunnel4, kmod-udptunnel6
+Replaces: kmod-udptunnel4, kmod-udptunnel6
 Source: padavanonly/immortalwrt-mt798x@02fff2aebcfe5f4e2166ebc8697e9edf932c5a77
 SourceName: kmod-udptunnel-combined
+SourceDateEpoch: 1733192977
 License: GPL-2.0
 Section: kernel
 Architecture: aarch64_cortex-a53

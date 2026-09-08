@@ -1,0 +1,23 @@
+#!/bin/sh
+[ "${IPKG_NO_SCRIPT:-}" = "1" ] && exit 0
+[ -n "${IPKG_INSTROOT:-}" ] && exit 0
+
+fail_target_check() {
+	echo "Refusing to install: this package only supports Netcore N60 PRO firmware r20651+1-02fff2aebc with kernel 5.4.284." >&2
+	exit 1
+}
+
+board_file="${WG_KMOD_BOARD_FILE:-/tmp/sysinfo/board_name}"
+release_file="${WG_KMOD_RELEASE_FILE:-/etc/openwrt_release}"
+kernel_release="${WG_KMOD_KERNEL_RELEASE:-$(uname -r)}"
+
+[ -r "$board_file" ] || fail_target_check
+[ "$(cat "$board_file" 2>/dev/null)" = "netcore,n60" ] || fail_target_check
+[ "$kernel_release" = "5.4.284" ] || fail_target_check
+[ -r "$release_file" ] || fail_target_check
+
+DISTRIB_REVISION=
+. "$release_file" || fail_target_check
+[ "${DISTRIB_REVISION:-}" = "r20651+1-02fff2aebc" ] || fail_target_check
+
+exit 0

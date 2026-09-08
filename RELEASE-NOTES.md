@@ -1,8 +1,20 @@
 # Release notes
 
-## `v1.0.20220627-n60pro.1`
+## `v1.0.20220627-n60pro.2`
 
-Final package revision: `5.4.284-3`.
+Final package revision: `5.4.284-4`.
+
+### Package hardening
+
+- Refuses live installation unless the board is `netcore,n60`.
+- Refuses live installation unless the firmware revision is
+  `r20651+1-02fff2aebc` and the running kernel is `5.4.284`.
+- Retains the exact opkg kernel ABI dependency.
+- Adds `SourceDateEpoch` provenance metadata.
+- The combined UDP tunnel package now declares `Replaces` as well as
+  `Provides` and `Conflicts` for the split OpenWrt UDP tunnel packages.
+- `Installed-Size` is generated from the deterministic compressed data archive
+  by OpenWrt's `ipkg-build` and is verified after packaging.
 
 ### Artifacts
 
@@ -23,8 +35,8 @@ The GCC 8.4 modules were installed and tested across a controlled reboot:
 - no Oops, Panic, Call trace, or WireGuard load error was observed;
 - the dedicated WireGuard firewall zone remained operational.
 
-Package revision 3 only normalizes package file permissions; its two module
-binaries are byte-identical to the reboot-tested revision 2 binaries.
+Package revision 4 changes package guards and metadata only. Its two module
+binaries are byte-identical to the reboot-tested revision 2 and 3 binaries.
 
 ### Known scope
 

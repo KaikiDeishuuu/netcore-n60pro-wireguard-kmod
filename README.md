@@ -24,8 +24,8 @@ These packages are **only** for the following target:
 
 Install the two packages from `packages/` in this order:
 
-1. `kmod-udptunnel-combined_5.4.284-3_aarch64_cortex-a53.ipk`
-2. `kmod-wireguard_5.4.284-3_aarch64_cortex-a53.ipk`
+1. `kmod-udptunnel-combined_5.4.284-4_aarch64_cortex-a53.ipk`
+2. `kmod-wireguard_5.4.284-4_aarch64_cortex-a53.ipk`
 
 Verify the files before installation:
 
@@ -37,10 +37,14 @@ Then copy them to the router and install both in one transaction:
 
 ```sh
 opkg install \
-  /tmp/kmod-udptunnel-combined_5.4.284-3_aarch64_cortex-a53.ipk \
-  /tmp/kmod-wireguard_5.4.284-3_aarch64_cortex-a53.ipk
+  /tmp/kmod-udptunnel-combined_5.4.284-4_aarch64_cortex-a53.ipk \
+  /tmp/kmod-wireguard_5.4.284-4_aarch64_cortex-a53.ipk
 reboot
 ```
+
+Revision 4 adds a live-install guard that rejects any board, firmware revision,
+or kernel release other than the exact target documented above. The exact
+kernel package ABI dependency remains enforced by opkg.
 
 Use a local maintenance connection and keep a recovery path available. Back up
 the existing modules and `/etc/config/network` plus `/etc/config/firewall`
